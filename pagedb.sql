@@ -1,27 +1,27 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost(MySQL)
+ Source Server         : localhost-MySQL
  Source Server Type    : MySQL
- Source Server Version : 80100
+ Source Server Version : 80034
  Source Host           : localhost:3306
  Source Schema         : pagedb
 
  Target Server Type    : MySQL
- Target Server Version : 80100
+ Target Server Version : 80034
  File Encoding         : 65001
 
- Date: 21/03/2024 00:26:01
+ Date: 17/04/2024 17:42:03
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for sys_menus
+-- Table structure for sys_menu
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_menus`;
-CREATE TABLE `sys_menus`  (
+DROP TABLE IF EXISTS `sys_menu`;
+CREATE TABLE `sys_menu`  (
   `id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '菜单id',
   `pid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '菜单父级id',
   `title` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '菜单名称',
@@ -29,28 +29,53 @@ CREATE TABLE `sys_menus`  (
   `icon` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '菜单图标',
   `path` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '菜单地址',
   `menu_type` tinyint(1) NULL DEFAULT NULL COMMENT '菜单类型，0目录，1菜单，2按钮，3外链',
-  `show` tinyint(1) NULL DEFAULT NULL COMMENT '是否显示，0显示，1不显示',
-  `disabled` tinyint(1) NULL DEFAULT NULL COMMENT '是否禁用，0禁用，1不禁用',
-  `cache` tinyint(1) NULL DEFAULT NULL COMMENT '是否缓存，0缓存，1不缓存',
+  `show` tinyint(1) NULL DEFAULT 0 COMMENT '是否显示，0显示，1不显示',
+  `disabled` tinyint(1) NULL DEFAULT 1 COMMENT '是否禁用，0禁用，1不禁用',
+  `cache` tinyint(1) NULL DEFAULT 1 COMMENT '是否缓存，0缓存，1不缓存',
   `component` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '组件路径',
   `description` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '菜单描述',
-  `order` tinyint(0) NULL DEFAULT NULL COMMENT '排序',
+  `order` tinyint NULL DEFAULT NULL COMMENT '排序',
+  `create_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建者',
+  `is_deleted` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志，0未删除，1已删除',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of sys_menu
+-- ----------------------------
+INSERT INTO `sys_menu` VALUES ('0525fd7e-06b7-4c03-bae5-4f92af3138d6', '674113dc-0286-4faf-869f-f4ebf51391b7', '登录日志', 'signInLog', 'mdi:login', 'logManage/signInLog', 1, 0, 1, 1, '/system/logManage/signInLog', '登录日志', 2, 'admin', 0, '2024-04-17 16:46:23', '2024-04-17 16:46:23');
+INSERT INTO `sys_menu` VALUES ('0a1969567e1842a18cac009ef0d1f79f', '6fa28cf73c6c4c11bec106553d69c1b9', '菜单管理', 'MenuManage', 'mdi:menu', 'menuManage', 1, 0, 1, 1, '/system/menuManage/index', '菜单管理', 3, 'admin', 0, '2023-10-04 14:27:49', '2024-04-17 16:30:00');
+INSERT INTO `sys_menu` VALUES ('3bf0941cbcdc4f95b03e4096997ed18d', '6fa28cf73c6c4c11bec106553d69c1b9', '用户管理', 'UserManage', 'ic:baseline-settings', 'userManage', 1, 0, 1, 1, '/system/userManage/index', '用户管理', 1, 'admin', 0, '2023-10-04 14:27:49', '2023-12-30 14:27:58');
+INSERT INTO `sys_menu` VALUES ('674113dc-0286-4faf-869f-f4ebf51391b7', '6fa28cf73c6c4c11bec106553d69c1b9', '日志管理', 'logManage', 'mdi:math-log', 'logManage', 0, 0, 1, 1, 'aa', '日志管理', 6, 'admin', 0, '2024-04-17 16:19:36', '2024-04-17 16:40:42');
+INSERT INTO `sys_menu` VALUES ('6fa28cf73c6c4c11bec106553d69c1b9', '0', '系统管理', 'SystemManage', 'ic:baseline-settings', '/system', 0, 0, 1, 1, NULL, '系统管理', 2, 'admin', 0, '2023-10-04 14:27:49', '2023-12-30 14:27:58');
+INSERT INTO `sys_menu` VALUES ('71fa2550-ec9b-4037-8bdb-95f837f7a748', '674113dc-0286-4faf-869f-f4ebf51391b7', '操作日志', 'operLog', 'mdi:math-log', 'logManage/operLog', 1, 0, 1, 1, '/system/logManage/operLog', '操作日志', 1, 'admin', 0, '2024-04-17 16:44:39', '2024-04-17 16:44:39');
+INSERT INTO `sys_menu` VALUES ('74c3f4f1-2245-44fa-b9f8-74716af5f1a4', '6fa28cf73c6c4c11bec106553d69c1b9', '字典管理', 'dictManage', 'mdi:dictionary', 'dictManage', 1, 0, 1, 1, 'dictManage/index', '字典管理', 5, 'admin', 0, '2024-04-17 16:21:49', '2024-04-17 16:42:34');
+INSERT INTO `sys_menu` VALUES ('ab62e594a25d4c0dab54cda018b850ee', '0', '文章管理', 'ArticleManage', 'ic:outline-article', '/article', 0, 0, 1, 1, '', '文章管理', 1, 'admin', 0, '2023-10-04 14:27:49', '2023-12-30 14:27:58');
+INSERT INTO `sys_menu` VALUES ('b547c33203994ae3afa48c4807a25b8f', 'ab62e594a25d4c0dab54cda018b850ee', '发布文章', 'ReleaseArticle', 'ic:outline-article', 'releaseArticle', 1, 0, 1, 1, '/article/index', '发布文章', 1, 'admin', 0, '2023-10-04 14:27:49', '2023-12-30 14:27:58');
+INSERT INTO `sys_menu` VALUES ('d9fa698b-ea02-4066-9ff5-3bef72a86a85', '6fa28cf73c6c4c11bec106553d69c1b9', '角色管理', 'roleManage', 'mdi:account-key', 'roleManage', 1, 0, 1, 1, '/system/roleManage/index', '角色管理', 2, 'admin', 0, '2024-04-17 16:20:10', '2024-04-17 16:32:22');
+INSERT INTO `sys_menu` VALUES ('ec84932c-d7fa-4aab-abc3-a1429522d3ae', '6fa28cf73c6c4c11bec106553d69c1b9', '部门管理', 'deptManage', 'mdi:file-tree', 'deptManage', 1, 0, 1, 1, '/system/deptManage/index', '部门管理', 4, 'admin', 0, '2024-04-17 16:15:01', '2024-04-17 16:42:10');
+
+-- ----------------------------
+-- Table structure for sys_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role`;
+CREATE TABLE `sys_role`  (
+  `id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '角色id',
+  `code` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '角色代码',
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '角色名称',
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '角色描述',
   `create_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建者',
   `is_deleted` tinyint(1) NULL DEFAULT NULL COMMENT '删除标志，0未删除，1已删除',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of sys_menus
+-- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_menus` VALUES ('0a1969567e1842a18cac009ef0d1f79f', '6fa28cf73c6c4c11bec106553d69c1b9', '菜单管理', 'MenuManage', 'mdi:menu', 'menuManage', 1, 0, 1, 1, '/system/menuManage/index', '菜单管理', 2, 'admin', 0, '2023-10-04 14:27:49', '2023-12-30 14:27:58');
-INSERT INTO `sys_menus` VALUES ('3bf0941cbcdc4f95b03e4096997ed18d', '6fa28cf73c6c4c11bec106553d69c1b9', '用户管理', 'UserManage', 'ic:baseline-settings', 'userManage', 1, 0, 1, 1, '/system/userManage/index', '用户管理', 1, 'admin', 0, '2023-10-04 14:27:49', '2023-12-30 14:27:58');
-INSERT INTO `sys_menus` VALUES ('68715c7b-a1ce-4ca6-8f70-84436060a5a6', '6fa28cf73c6c4c11bec106553d69c1b9', '测试菜单', 'test', '', 'test', 1, 0, 1, 1, '/avac', '测试菜单', 3, 'admin', 0, '2023-12-30 19:25:48', '2023-12-30 19:25:48');
-INSERT INTO `sys_menus` VALUES ('6fa28cf73c6c4c11bec106553d69c1b9', '0', '系统管理', 'SystemManage', 'ic:baseline-settings', '/system', 0, 0, 1, 1, NULL, '系统管理', 2, 'admin', 0, '2023-10-04 14:27:49', '2023-12-30 14:27:58');
-INSERT INTO `sys_menus` VALUES ('ab62e594a25d4c0dab54cda018b850ee', '0', '文章管理', 'ArticleManage', 'ic:outline-article', '/article', 0, 0, 1, 1, '', '文章管理', 1, 'admin', 0, '2023-10-04 14:27:49', '2023-12-30 14:27:58');
-INSERT INTO `sys_menus` VALUES ('b547c33203994ae3afa48c4807a25b8f', 'ab62e594a25d4c0dab54cda018b850ee', '发布文章', 'ReleaseArticle', 'ic:outline-article', 'releaseArticle', 1, 0, 1, 1, '/article/index', '发布文章', 1, 'admin', 0, '2023-10-04 14:27:49', '2023-12-30 14:27:58');
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -70,10 +95,10 @@ CREATE TABLE `sys_user`  (
   `marks` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '个性签名',
   `is_deleted` tinyint(1) NULL DEFAULT 0 COMMENT '是否删除，0表示没有删除，1表示删除',
   `create_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user
@@ -86,6 +111,23 @@ INSERT INTO `sys_user` VALUES ('b6c36892-adef-4e07-9f06-9cc595378388', 'hahh', '
 INSERT INTO `sys_user` VALUES ('b8c51c2f-fdd2-4ab6-838c-6c5e15c5fe6a', 'zhangsan', '123456', '张三', 'zhangsan@163.com', '13977943560', 1, '1995-4-11', '昆明', '/images/avatar/zhangsan.png', '最后的才是最好的', 0, NULL, '2020-08-18 16:38:16', '2020-08-18 16:38:16');
 INSERT INTO `sys_user` VALUES ('d39491b9-51da-4f35-bd8b-0842be056317', 'xiaobai', 'xxxxx', '小白白', '25987365@qq.com', '689534782', 0, '2008-12-23', '四川', '/images/avatar/xiaobai.png', '爱疯了方法', 0, 'admin', '2020-08-18 16:24:29', '2020-08-18 16:24:29');
 INSERT INTO `sys_user` VALUES ('ed72ab50-b85b-45f1-963e-a29b3b359f3b', 'vivi', '123456', '微微', 'vv@qq.com', '13977945698', 1, '2004-5-20', '曲靖', '/images/avatar/vivi.png', '天生我材必有用', 0, 'admin', '2020-08-18 17:23:05', '2020-08-18 17:23:05');
+
+-- ----------------------------
+-- Table structure for sys_user_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user_role`;
+CREATE TABLE `sys_user_role`  (
+  `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户id',
+  `role_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '角色id',
+  PRIMARY KEY (`user_id`) USING BTREE,
+  INDEX `user_role_ibfk_2`(`role_id`) USING BTREE,
+  CONSTRAINT `user_role_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user_role_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `sys_role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_user_role
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for sys_users
@@ -105,10 +147,10 @@ CREATE TABLE `sys_users`  (
   `user_marks` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '个性签名',
   `is_deleted` tinyint(1) NULL DEFAULT 0 COMMENT '是否删除，0表示没有删除，1表示删除',
   `create_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_users
