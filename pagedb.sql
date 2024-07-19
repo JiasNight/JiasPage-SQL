@@ -11,7 +11,7 @@
  Target Server Version : 80034
  File Encoding         : 65001
 
- Date: 09/07/2024 17:25:21
+ Date: 19/07/2024 18:00:30
 */
 
 SET NAMES utf8mb4;
@@ -74,17 +74,18 @@ CREATE TABLE `sys_menu`  (
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES ('0525fd7e-06b7-4c03-bae5-4f92af3138d6', '674113dc-0286-4faf-869f-f4ebf51391b7', '登录日志', 'signInLog', 'mdi:login', 'logManage/signInLog', 1, 0, 1, 1, '/system/logManage/signInLog', '登录日志', 2, 0, 'admin', '2024-04-17 16:46:23', 'admin', '2024-04-17 16:46:23');
-INSERT INTO `sys_menu` VALUES ('0a1969567e1842a18cac009ef0d1f79f', '6fa28cf73c6c4c11bec106553d69c1b9', '菜单管理', 'MenuManage', 'mdi:menu', 'menuManage', 1, 0, 1, 1, '/system/menuManage/index', '菜单管理', 3, 0, 'admin', '2023-10-04 14:27:49', 'admin', '2024-04-17 16:30:00');
+INSERT INTO `sys_menu` VALUES ('0525fd7e-06b7-4c03-bae5-4f92af3138d6', '674113dc-0286-4faf-869f-f4ebf51391b7', '登录日志', 'signInLog', 'mdiLogin', 'logManage/signInLog', 1, 0, 1, 1, '/system/logManage/signInLog', '登录日志', 2, 0, 'admin', '2024-04-17 16:46:23', 'admin', '2024-04-17 16:46:23');
+INSERT INTO `sys_menu` VALUES ('0a1969567e1842a18cac009ef0d1f79f', '6fa28cf73c6c4c11bec106553d69c1b9', '菜单管理', 'MenuManage', 'mdiMenu', 'menuManage', 1, 0, 1, 1, '/system/menuManage/index', '菜单管理', 3, 0, 'admin', '2023-10-04 14:27:49', 'admin', '2024-04-17 16:30:00');
 INSERT INTO `sys_menu` VALUES ('3bf0941cbcdc4f95b03e4096997ed18d', '6fa28cf73c6c4c11bec106553d69c1b9', '用户管理', 'UserManage', 'ic:baseline-settings', 'userManage', 1, 0, 1, 1, '/system/userManage/index', '用户管理', 1, 0, 'admin', '2023-10-04 14:27:49', 'admin', '2023-12-30 14:27:58');
 INSERT INTO `sys_menu` VALUES ('674113dc-0286-4faf-869f-f4ebf51391b7', '6fa28cf73c6c4c11bec106553d69c1b9', '日志管理', 'logManage', 'mdi:math-log', 'logManage', 0, 0, 1, 1, 'aa', '日志管理', 6, 0, 'admin', '2024-04-17 16:19:36', 'admin', '2024-04-17 16:40:42');
 INSERT INTO `sys_menu` VALUES ('6fa28cf73c6c4c11bec106553d69c1b9', '0', '系统管理', 'SystemManage', 'ic:baseline-settings', '/system', 0, 0, 1, 1, NULL, '系统管理', 2, 0, 'admin', '2023-10-04 14:27:49', 'admin', '2023-12-30 14:27:58');
-INSERT INTO `sys_menu` VALUES ('71fa2550-ec9b-4037-8bdb-95f837f7a748', '674113dc-0286-4faf-869f-f4ebf51391b7', '操作日志', 'operLog', 'mdi:math-log', 'logManage/operLog', 1, 0, 1, 1, '/system/logManage/operLog', '操作日志', 1, 0, 'admin', '2024-04-17 16:44:39', 'admin', '2024-04-17 16:44:39');
+INSERT INTO `sys_menu` VALUES ('71fa2550-ec9b-4037-8bdb-95f837f7a748', '674113dc-0286-4faf-869f-f4ebf51391b7', '操作日志', 'operLog', 'mdiMathLog', 'logManage/operLog', 1, 0, 1, 1, '/system/logManage/operLog', '操作日志', 1, 0, 'admin', '2024-04-17 16:44:39', 'admin', '2024-04-17 16:44:39');
 INSERT INTO `sys_menu` VALUES ('74c3f4f1-2245-44fa-b9f8-74716af5f1a4', '6fa28cf73c6c4c11bec106553d69c1b9', '字典管理', 'dictManage', 'mdi:dictionary', 'dictManage', 1, 0, 1, 1, 'dictManage/index', '字典管理', 5, 0, 'admin', '2024-04-17 16:21:49', 'admin', '2024-04-17 16:42:34');
 INSERT INTO `sys_menu` VALUES ('ab62e594a25d4c0dab54cda018b850ee', '0', '文章管理', 'ArticleManage', 'ic:outline-article', '/article', 0, 0, 1, 1, '', '文章管理', 1, 0, 'admin', '2023-10-04 14:27:49', 'admin', '2023-12-30 14:27:58');
 INSERT INTO `sys_menu` VALUES ('b547c33203994ae3afa48c4807a25b8f', 'ab62e594a25d4c0dab54cda018b850ee', '发布文章', 'ReleaseArticle', 'ic:outline-article', 'releaseArticle', 1, 0, 1, 1, '/article/index', '发布文章', 1, 0, 'admin', '2023-10-04 14:27:49', 'admin', '2023-12-30 14:27:58');
+INSERT INTO `sys_menu` VALUES ('c42c7755-ef28-4c83-ab61-bca1ceb3c1c0', 'ab62e594a25d4c0dab54cda018b850ee', '测试', '123', NULL, '/teset', 1, 0, 1, 1, '/tese', '13', NULL, 1, 'admin', '2024-07-10 20:13:40', NULL, '2024-07-10 20:13:40');
 INSERT INTO `sys_menu` VALUES ('d9fa698b-ea02-4066-9ff5-3bef72a86a85', '6fa28cf73c6c4c11bec106553d69c1b9', '角色管理', 'roleManage', 'mdi:account-key', 'roleManage', 1, 0, 1, 1, '/system/roleManage/index', '角色管理', 2, 0, 'admin', '2024-04-17 16:20:10', 'admin', '2024-04-17 16:32:22');
-INSERT INTO `sys_menu` VALUES ('ec84932c-d7fa-4aab-abc3-a1429522d3ae', '6fa28cf73c6c4c11bec106553d69c1b9', '部门管理', 'deptManage', 'mdi:file-tree', 'deptManage', 1, 0, 1, 1, '/system/deptManage/index', '部门管理', 4, 0, 'admin', '2024-04-17 16:15:01', 'admin', '2024-04-17 16:42:10');
+INSERT INTO `sys_menu` VALUES ('ec84932c-d7fa-4aab-abc3-a1429522d3ae', '6fa28cf73c6c4c11bec106553d69c1b9', '部门管理', 'deptManage', 'mdiFileTree', 'deptManage', 1, 0, 1, 1, '/system/deptManage/index', '部门管理', 4, 0, 'admin', '2024-04-17 16:15:01', 'admin', '2024-04-17 16:42:10');
 
 -- ----------------------------
 -- Table structure for sys_permission
