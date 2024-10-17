@@ -11,7 +11,7 @@
  Target Server Version : 80034
  File Encoding         : 65001
 
- Date: 08/10/2024 17:21:40
+ Date: 17/10/2024 17:43:58
 */
 
 SET NAMES utf8mb4;
@@ -3902,10 +3902,12 @@ CREATE TABLE `sys_role`  (
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES ('2cdb9cd4-4790-4667-895a-5cfa580348c7', 'normal113', '普通用户', '普通用户', 0, 'admin', '2024-07-08 22:24:47', 'admin', '2024-07-09 11:34:55');
+INSERT INTO `sys_role` VALUES ('2cdb9cd4-4790-4667-895a-5cfa580348c7', 'normal113', '普通用户', '普通用户', 1, 'admin', '2024-07-08 22:24:47', 'admin', '2024-07-09 11:34:55');
 INSERT INTO `sys_role` VALUES ('a852ff86-a331-4dfb-a8cd-bf1ebd26530e', 'admin', '超级管理员', '超级管理员', 0, 'admin', '2024-07-08 22:09:18', 'admin', '2024-07-08 22:09:18');
+INSERT INTO `sys_role` VALUES ('bac0293e-5a2d-4ebd-b15a-080d779c5355', 'normal555', '普通用户', '普通用户', 1, 'admin', '2024-10-16 16:07:58', 'admin', '2024-10-16 16:07:58');
+INSERT INTO `sys_role` VALUES ('bd2c46a6-1580-4253-9ba6-8c6c0db017ad', 'normal99', '普通用户', '普通用户', 1, 'admin', '2024-10-15 17:48:10', 'admin', '2024-10-15 17:48:10');
 INSERT INTO `sys_role` VALUES ('ebf869d0-d6be-47c0-8b32-1a2f1ab0e7d5', 'normal', '普通用户', '普通用户', 0, 'admin', '2024-07-08 22:16:10', 'admin', '2024-07-08 22:16:10');
-INSERT INTO `sys_role` VALUES ('fb33c1ee-0e5d-405d-8b0d-b7983f963e6d', 'normal22222222', '普通用户', '普通用户', 1, 'admin', '2024-07-08 22:24:43', 'admin', '2024-07-08 22:26:11');
+INSERT INTO `sys_role` VALUES ('fb33c1ee-0e5d-405d-8b0d-b7983f963e6d', 'cs', '普通用户', '普通用户', 0, 'admin', '2024-07-08 22:24:43', 'admin', '2024-10-16 16:10:57');
 
 -- ----------------------------
 -- Table structure for sys_role_permission
