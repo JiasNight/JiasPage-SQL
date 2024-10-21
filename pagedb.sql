@@ -11,7 +11,7 @@
  Target Server Version : 80034
  File Encoding         : 65001
 
- Date: 17/10/2024 17:43:58
+ Date: 21/10/2024 19:30:30
 */
 
 SET NAMES utf8mb4;
@@ -3902,12 +3902,9 @@ CREATE TABLE `sys_role`  (
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES ('2cdb9cd4-4790-4667-895a-5cfa580348c7', 'normal113', '普通用户', '普通用户', 1, 'admin', '2024-07-08 22:24:47', 'admin', '2024-07-09 11:34:55');
 INSERT INTO `sys_role` VALUES ('a852ff86-a331-4dfb-a8cd-bf1ebd26530e', 'admin', '超级管理员', '超级管理员', 0, 'admin', '2024-07-08 22:09:18', 'admin', '2024-07-08 22:09:18');
-INSERT INTO `sys_role` VALUES ('bac0293e-5a2d-4ebd-b15a-080d779c5355', 'normal555', '普通用户', '普通用户', 1, 'admin', '2024-10-16 16:07:58', 'admin', '2024-10-16 16:07:58');
-INSERT INTO `sys_role` VALUES ('bd2c46a6-1580-4253-9ba6-8c6c0db017ad', 'normal99', '普通用户', '普通用户', 1, 'admin', '2024-10-15 17:48:10', 'admin', '2024-10-15 17:48:10');
 INSERT INTO `sys_role` VALUES ('ebf869d0-d6be-47c0-8b32-1a2f1ab0e7d5', 'normal', '普通用户', '普通用户', 0, 'admin', '2024-07-08 22:16:10', 'admin', '2024-07-08 22:16:10');
-INSERT INTO `sys_role` VALUES ('fb33c1ee-0e5d-405d-8b0d-b7983f963e6d', 'cs', '普通用户', '普通用户', 0, 'admin', '2024-07-08 22:24:43', 'admin', '2024-10-16 16:10:57');
+INSERT INTO `sys_role` VALUES ('fb33c1ee-0e5d-405d-8b0d-b7983f963e6d', 'ceo', '董事长', '董事长', 0, 'admin', '2024-07-08 22:24:43', 'admin', '2024-10-18 11:20:23');
 
 -- ----------------------------
 -- Table structure for sys_role_permission
@@ -3945,7 +3942,7 @@ CREATE TABLE `sys_user`  (
   `city_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '所在城市的id',
   `avatar` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '/images/avatar/default.png' COMMENT '用户头像',
   `status` tinyint(1) NULL DEFAULT NULL COMMENT '用户状态，0正常，1停用',
-  `remarks` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
+  `remark` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
   `is_deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除，0表示没有删除，1表示删除',
   `create_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
@@ -3958,18 +3955,18 @@ CREATE TABLE `sys_user`  (
 -- Records of sys_user
 -- ----------------------------
 INSERT INTO `sys_user` VALUES ('0e7b7d5c-8096-4a83-9a2c-6fb24f4e0b8a', 'admin123', '$2a$10$HnxSgJzKXCBoCK2n.Z4N9ekIgPafgnbpLFEsfXe7a2JsGytvnNRse', '老板', '2514627157@qq.com', '13333333333', 0, '2024-08-31', NULL, '', 1, '', 0, 'admin', '2024-08-21 22:49:41', 'admin', '2024-08-21 23:22:14');
-INSERT INTO `sys_user` VALUES ('52bb4814-ffca-4d1e-90ff-8eb33b10ef99', 'pinpin', '$2a$10$7xJ.hVhM3DMOd6XHAdL3EecIM.l5XhcFYUw8JGXDGVdNYGPQ4vomK', '萍萍', 'liupin@163.com', '13977943560', 0, '1996-8-11', '四川', '/images/avatar/pinpin.png', 0, '在出现以前我会等', 0, 'admin', '2020-08-18 16:38:16', 'admin', '2020-08-18 16:38:16');
+INSERT INTO `sys_user` VALUES ('52bb4814-ffca-4d1e-90ff-8eb33b10ef99', 'pinpin', '$2a$10$7xJ.hVhM3DMOd6XHAdL3EecIM.l5XhcFYUw8JGXDGVdNYGPQ4vomK', '萍萍', 'liupin@163.com', '13977943560', 0, '1996-8-11', NULL, '/images/avatar/pinpin.png', 0, '在出现以前我会等', 0, 'admin', '2020-08-18 16:38:16', 'admin', '2020-08-18 16:38:16');
 INSERT INTO `sys_user` VALUES ('5d5e6d0a-d1ef-4802-bf13-ca4ea72d4f13', 'laowang', '$2a$10$okGRxN4JbDy1a1DWsSImX.A888dH1/7nTOH8rkG.ZEkXrmkUizgOK', '老瓦', '2644337213@qq.com', '13335555555', 1, '2024-08-31', NULL, '', 0, '涝洼港', 0, 'admin', '2024-08-21 23:24:48', 'admin', '2024-08-22 00:10:55');
-INSERT INTO `sys_user` VALUES ('74eee865-0cbd-438d-91ff-b3b1371d8c28', 'admin', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '超级管理员', 'admin@page.com', '18888888888', 1, '2000-01-01', '云南', '/images/avatar/admin.png', 0, '超级无敌管理员', 0, 'admin', '2023-12-29 17:57:33', 'admin', '2023-12-29 17:57:33');
+INSERT INTO `sys_user` VALUES ('74eee865-0cbd-438d-91ff-b3b1371d8c28', 'admin', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '超级管理员', 'admin@page.com', '18888888888', 1, '2000-01-01', NULL, '/images/avatar/admin.png', 0, '超级无敌管理员', 0, 'admin', '2023-12-29 17:57:33', 'admin', '2023-12-29 17:57:33');
 INSERT INTO `sys_user` VALUES ('78a9138f-e1b7-4f82-8ae0-aba9296f033a', 'letme', '$2a$10$YL7ekjN0lqxXHvQpMkfwM.meEbYu2JytCUzID79JlLQcxpSd3WFsS', 'meme', 'QQ222@qq.com', '15899056241', 0, '2023-11-22', NULL, '', 0, '', 0, 'admin', '2024-08-28 00:22:11', 'admin', '2024-08-28 00:22:11');
-INSERT INTO `sys_user` VALUES ('7bb41f4f-d744-45ab-84bb-57ce4b972542', 'libai', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '李白', '123456@163.com', '12345678910', 0, '2020-10-08', '上海', NULL, 0, '好好学习', 0, 'admin', '2020-08-18 16:38:16', 'admin', '2020-08-18 16:38:16');
+INSERT INTO `sys_user` VALUES ('7bb41f4f-d744-45ab-84bb-57ce4b972542', 'libai', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '李白', '123456@163.com', '12345678910', 0, '2020-10-08', NULL, NULL, 0, '好好学习', 0, 'admin', '2020-08-18 16:38:16', 'admin', '2020-08-18 16:38:16');
 INSERT INTO `sys_user` VALUES ('7ea993ab-76f0-48fb-bca9-f0bc6efd1196', 'tuijian', '$2a$10$egLbFk8Doi5UbngNjN3xy.KnRoUbAyCoCiDSb2YzDGr/cCkagJwSy', '推荐', '33@qq.com', '13536896966', 0, '2024-08-21', NULL, '', 0, '', 1, 'admin', '2024-08-26 22:52:42', 'admin', '2024-08-26 22:52:42');
-INSERT INTO `sys_user` VALUES ('aa8e31e6-c155-4694-b654-6f25a19bfde5', 'xiaozhang', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '小张', '123@163.com', '13977943560', 1, '1995-12-21', '昆明', '/images/avatar/xiaozhang.png', 0, '没有的才是最后的', 0, 'admin', '2020-08-18 16:38:16', 'admin', '2020-08-18 16:38:16');
-INSERT INTO `sys_user` VALUES ('b6c36892-adef-4e07-9f06-9cc595378388', 'hahh', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '小哈', '25448766@qq.com', '1357846987', 1, '2008-12-23', '成都', '/images/avatar/hh.png', 0, '刚刚去噶啥', 0, 'admin', '2020-08-18 16:38:16', 'admin', '2020-08-18 16:38:16');
-INSERT INTO `sys_user` VALUES ('b8c51c2f-fdd2-4ab6-838c-6c5e15c5fe6a', 'zhangsan', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '张三', 'zhangsan@163.com', '13977943560', 1, '1995-4-11', '昆明', '/images/avatar/zhangsan.png', 0, '最后的才是最好的', 0, 'admin', '2020-08-18 16:38:16', 'admin', '2020-08-18 16:38:16');
-INSERT INTO `sys_user` VALUES ('d39491b9-51da-4f35-bd8b-0842be056317', 'xiaobai', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '小白白', '25987365@qq.com', '689534782', 0, '2008-12-23', '四川', '/images/avatar/xiaobai.png', 0, '爱疯了方法', 0, 'admin', '2020-08-18 16:24:29', 'admin', '2020-08-18 16:24:29');
-INSERT INTO `sys_user` VALUES ('d4fe12ba-0d9a-4e94-a2c8-a560e4ce8382', 'root', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '超级管理员', 'admin@page.com', '18888888888', 1, '2000-01-01', '云南', '/images/avatar/admin.png', 0, '超级无敌管理员', 0, 'admin', '2024-05-30 22:31:37', 'admin', '2024-05-30 22:31:37');
-INSERT INTO `sys_user` VALUES ('ed72ab50-b85b-45f1-963e-a29b3b359f3b', 'vivi', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '微微', 'vv@qq.com', '13977945698', 1, '2004-5-20', '曲靖', '/images/avatar/vivi.png', 0, '天生我材必有用', 0, 'admin', '2020-08-18 17:23:05', 'admin', '2020-08-18 17:23:05');
+INSERT INTO `sys_user` VALUES ('aa8e31e6-c155-4694-b654-6f25a19bfde5', 'xiaozhang', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '小张', '123@163.com', '13977943560', 1, '1995-12-21', NULL, '/images/avatar/xiaozhang.png', 0, '没有的才是最后的', 0, 'admin', '2020-08-18 16:38:16', 'admin', '2020-08-18 16:38:16');
+INSERT INTO `sys_user` VALUES ('b6c36892-adef-4e07-9f06-9cc595378388', 'hahh', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '小哈', '25448766@qq.com', '1357846987', 1, '2008-12-23', NULL, '/images/avatar/hh.png', 0, '刚刚去噶啥', 0, 'admin', '2020-08-18 16:38:16', 'admin', '2020-08-18 16:38:16');
+INSERT INTO `sys_user` VALUES ('b8c51c2f-fdd2-4ab6-838c-6c5e15c5fe6a', 'zhangsan', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '张三', 'zhangsan@163.com', '13977943560', 1, '1995-4-11', NULL, '/images/avatar/zhangsan.png', 0, '最后的才是最好的', 0, 'admin', '2020-08-18 16:38:16', 'admin', '2020-08-18 16:38:16');
+INSERT INTO `sys_user` VALUES ('d39491b9-51da-4f35-bd8b-0842be056317', 'xiaobai', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '小白白', '25987365@qq.com', '689534782', 0, '2008-12-23', NULL, '/images/avatar/xiaobai.png', 0, '爱疯了方法', 0, 'admin', '2020-08-18 16:24:29', 'admin', '2020-08-18 16:24:29');
+INSERT INTO `sys_user` VALUES ('d4fe12ba-0d9a-4e94-a2c8-a560e4ce8382', 'root', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '超级管理员', 'admin@page.com', '18888888888', 1, '2000-01-01', NULL, '/images/avatar/admin.png', 0, '超级无敌管理员', 0, 'admin', '2024-05-30 22:31:37', 'admin', '2024-05-30 22:31:37');
+INSERT INTO `sys_user` VALUES ('ed72ab50-b85b-45f1-963e-a29b3b359f3b', 'vivi', '$2a$10$YBv/v.BCfFxDxw4ztNXFC.O9Nz25nMSsMpihLNaaA7gG37HuEv.3m', '微微', 'vv@qq.com', '13977945698', 1, '2004-5-20', NULL, '/images/avatar/vivi.png', 0, '天生我材必有用', 0, 'admin', '2020-08-18 17:23:05', 'admin', '2020-08-18 17:23:05');
 
 -- ----------------------------
 -- Table structure for sys_user_role
